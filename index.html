@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, My Love 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts animation */
+        .heart {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.8);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.2); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.4); }
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #f0f0f0;
+            font-style: italic;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #ffb6c1;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .love-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .love-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffb6c1, #ffc0cb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            font-size: 4em;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .promise-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .promise-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffb6c1;
+            color: #fff;
+            font-size: 1.1em;
+            animation: slideIn 1s ease-out;
+        }
+
+        .promise-list li:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        .promise-list li:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #f0f0f0;
+            font-style: italic;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .interactive-heart {
+            position: fixed;
+            font-size: 2em;
+            color: #ff6b6b;
+            pointer-events: none;
+            animation: heartFloat 2s ease-out forwards;
+        }
+
+        @keyframes heartFloat {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5em; }
+            .card { padding: 25px; margin: 20px 0; }
+            .message { font-size: 1.1em; }
+            .photo-frame { width: 150px; height: 150px; font-size: 3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">I'm Sorry, My Kucchu <span class="sparkle">✨</span></h1>
+            <p class="subtitle">A heartfelt apology from your bf who loves you endlessly</p>
+        </div>
+
+        <div class="card">
+            <div class="message">
+                <p>My sweetest Dishi,</p>
+                <br>
+                <p>I know I messed up really bad, and I can't stop thinking about how much I hurt my precious kucchu pucchu. Your smile means <span class="highlight">everything</span> to me, and knowing that I made you sad breaks my heart into tiny pieces.</p>
+                <br>
+                <p>You know how much your Abhi loves you, right? Even when I act like a complete idiot, my love for you never changes - it just keeps growing stronger every day.</p>
+            </div>
+        </div>
+
+        <div class="photo-frame">
+            💕
+        </div>
+
+        <div class="card">
+            <div class="message">
+                <p>My beautiful pookie, you are the <span class="highlight">sunshine</span> that brightens my darkest days, the <span class="highlight">melody</span> that makes my heart dance, and the <span class="highlight">reason</span> I want to be the best version of myself.</p>
+                <br>
+                <p>I promise to do so much better, to listen to every word you say, and to cherish every silly moment we share together. You deserve all the cuddles, all the love, and all the happiness in this world, and I want to be your person who gives it all to you.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="color: #ffb6c1; text-align: center; margin-bottom: 20px; font-size: 1.5em;">My Promises to My Pucchu ❤️</h3>
+            <ul class="promise-list">
+                <li>💝 I will always put us first and talk to you about everything, no more hiding feelings</li>
+                <li>🌟 I will make you giggle every single day (yes, even with my cringey jokes!)</li>
+                <li>🎀 I will surprise my kucchu with little things that make your heart flutter</li>
+                <li>💖 I will never forget how lucky I am to have you as my person</li>
+                <li>🌹 I will love you more than all the stars in the sky</li>
+                <li>🤗 I will give you endless hugs and forehead kisses whenever you need them</li>
+                <li>🍕 I will share my food with you (yes, even my favorite paneer pieces!)</li>
+            </ul>
+        </div>
+
+        <div class="button-container">
+            <button class="love-button" onclick="showLove()">
+                Click if you forgive your silly gugu 💕
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="message">
+                <p>You're not just my girlfriend, Dishi - you're my <span class="highlight">best friend</span>, my <span class="highlight">partner in weirdness</span>, my <span class="highlight">favorite human</span>, my <span class="highlight">cuddle buddy</span>, and my <span class="highlight">forever pucchu</span>.</p>
+                <br>
+                <p>Don't be mad for such silly things, I love you so much bae, and how you make everything better just by being you.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="message">
+                <p>I know sorry isn't enough for what I did, but please know that you mean the absolute world to me. Without you, everything feels boring and colorless. You're my happiness, my peace, my chaos, and my calm all rolled into one perfect person.</p>
+                <br>
+                <p>Can we please go back to our silly random late night talks, and all those little moments that make us... well, US?</p>
+                <br>
+                <p>I miss my kucchu so much it physically hurts. Please forgive your dumb abhi? 🥺</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>For gugu, with all my love and infinite cuddles 🤗</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">P.S. - Dishi, you're still the most gorgeous person I've ever seen, especially when you do that cute little smile that makes my heart skip beats ☺️</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">P.P.S. - I owe you ice cream, lots of it! 🍦</p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 1000);
+
+        // Interactive love button
+        function showLove() {
+            const messages = [
+                "Yay! My kucchu forgives me! 💕",
+                "I love you so much, pucchu! 🥰",
+                "Thank you for being the best! ❤️",
+                "You make me so happy! 💖",
+                "I'm the luckiest person to have you! 🌟",
+                "Group hug time! 🤗",
+                "You're my everything, Dishi! 💝"
+            ];
+
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Create celebration hearts
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'interactive-heart';
+                    heart.innerHTML = '💕';
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.top = window.innerHeight + 'px';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+
+            // Show sweet message
+            setTimeout(() => {
+                alert(randomMessage);
+            }, 500);
+        }
+
+        // Click anywhere to create hearts
+        document.addEventListener('click', function(e) {
+            if (e.target.className !== 'love-button') {
+                const heart = document.createElement('div');
+                heart.className = 'interactive-heart';
+                heart.innerHTML = '💝';
+                heart.style.left = e.clientX + 'px';
+                heart.style.top = e.clientY + 'px';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 2000);
+            }
+        });
+
+        // Initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 500);
+        }
+    </script>
+</body>
+</html>
